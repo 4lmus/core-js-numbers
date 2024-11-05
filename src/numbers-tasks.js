@@ -263,8 +263,25 @@ function getCube(num) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  let a = 1;
+  let b = 1;
+  let c = 0;
+  if (index === 0) {
+    a = 0;
+    return 0;
+  }
+  if (index > 0 && index <= 2) {
+    a = 1;
+    b = 1;
+    return 1;
+  }
+  for (let i = 3; i <= index; i += 1) {
+    c = a + b;
+    a = b;
+    b = c;
+  }
+  return c;
 }
 
 /**
@@ -278,8 +295,12 @@ function getFibonacciNumber(/* index */) {
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN(/* n */) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  let sum = 0;
+  for (let i = n; i > 0; i -= 1) {
+    sum += i;
+  }
+  return sum;
 }
 
 /**
@@ -293,8 +314,14 @@ function getSumToN(/* n */) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  let sum = 0;
+  let loopForDigits = num;
+  while (loopForDigits > 0) {
+    sum += loopForDigits % 10;
+    loopForDigits = (loopForDigits - (loopForDigits % 10)) / 10;
+  }
+  return sum;
 }
 
 /**
@@ -308,8 +335,16 @@ function getSumOfDigits(/* num */) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  let numCheck = num;
+  while (numCheck !== 1) {
+    if (numCheck % 2 === 0) {
+      numCheck /= 2;
+    } else {
+      return false;
+    }
+  }
+  return true;
 }
 
 /**
@@ -322,8 +357,8 @@ function isPowerOfTwo(/* num */) {
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  return Math.sin(num);
 }
 
 /**
@@ -337,8 +372,8 @@ function getSine(/* num */) {
  * 255, 16 => 'ff'
  * 2, 2    => '10'
  */
-function numberToStringInBase(/* number, base */) {
-  throw new Error('Not implemented');
+function numberToStringInBase(number, base) {
+  return number.toString(base);
 }
 
 /**
